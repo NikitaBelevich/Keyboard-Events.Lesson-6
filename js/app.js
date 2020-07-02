@@ -12,3 +12,16 @@ input1.addEventListener('keydown', (e) => {
 function t1(event) {
     return event.key;
 }
+
+// Task 2 ============================================
+/*  Дан input .i-2. Напишите функцию t2, которая выводит в .out-2 код символа и возвращает его. */
+const input2 = document.querySelector('.i-2');
+const out2 = document.querySelector('.out-2');
+
+input2.addEventListener('keydown', (e) => {
+    out2.textContent = t2(e);
+});
+
+function t2(event) {
+    return event.code;
+}
