@@ -23,5 +23,5 @@ input2.addEventListener('keydown', (e) => {
 });
 
 function t2(event) {
-    return event.code;
+    return event.keyCode;
 }
