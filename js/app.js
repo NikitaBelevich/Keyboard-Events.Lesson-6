@@ -98,3 +98,29 @@ function t7() {
     let randIndex = Math.floor(Math.random() * a7.length);
     return a7[randIndex];
 }
+
+// Task 8 ============================================
+/*  Дан input .i-8. Напишите функцию t8, которая выводит в .out-8 вводимый в input текст, но заменяет i на 1, o на 0, l на 7. */
+const input8 = document.querySelector('.i-8');
+const out8 = document.querySelector('.out-8');
+
+input8.addEventListener('keydown', function(e) {
+    out8.textContent += t8(e);
+});
+
+function t8(event) {
+    let outputChar = event.key;
+
+    switch (outputChar) {
+        case 'i':
+            outputChar = 1;
+            break;
+        case 'o':
+            outputChar = 0;
+            break;
+        case 'l':
+            outputChar = 7;
+            break;
+    }
+    return outputChar;
+}
