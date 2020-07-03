@@ -124,3 +124,19 @@ function t8(event) {
     }
     return outputChar;
 }
+
+// Task 9 ============================================
+/* Дан input .i-9. Напишите функцию t9, выводит в .out-9 количество нажатых клавиш стрелка вниз. */
+const input9 = document.querySelector('.i-9');
+const out9 = document.querySelector('.out-9');
+
+input9.addEventListener('keydown', function(e) {
+    out9.textContent = t9(e);
+});
+
+let countArrowDown9 = 0;
+function t9(event) {
+    if (event.code == 'ArrowDown') {
+        return ++countArrowDown9;
+    } else return out9.textContent;
+}
