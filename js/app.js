@@ -53,3 +53,18 @@ function t4(event) {
         return event.key.toLowerCase();
     } else return '';
 }
+
+// Task 5 ============================================
+/*  Дан input .i-5. Напишите функцию t5, которая выводит в .out-5 все вводимые символы в верхнем регистре. Т.е. пользователь ввел AbCd и функция выведет ABCD. */
+const input5 = document.querySelector('.i-5');
+const out5 = document.querySelector('.out-5');
+
+input5.addEventListener('keyup', function(e) {
+    out5.textContent += t5(e);
+});
+
+function t5() {
+    if (event.code.includes('Key')) {
+        return event.key.toUpperCase();
+    } else return '';
+}
