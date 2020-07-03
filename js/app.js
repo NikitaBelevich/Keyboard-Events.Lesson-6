@@ -38,3 +38,18 @@ input3.addEventListener('keydown', (e) => {
 function t3(event) {
     return (!event.code.includes('Digit')) ? true : false;
 }
+
+// Task 4 ============================================
+/*  Дан input .i-4. Напишите функцию t4, которая выводит в .out-4 только символы в нижнем регистре. Т.е. ввели ab4Bci в out получаем ab4bci. */
+const input4 = document.querySelector('.i-4');
+const out4 = document.querySelector('.out-4');
+
+input4.addEventListener('keyup', function(e) {
+    out4.textContent += t4(e);
+});
+
+function t4(event) {
+    if (event.code.includes('Key')) {
+        return event.key.toLowerCase();
+    } else return '';
+}
