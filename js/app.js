@@ -68,3 +68,18 @@ function t5() {
         return event.key.toUpperCase();
     } else return '';
 }
+
+// Task 6 ============================================
+/*  Дан input .i-6. Напишите функцию t6, которая выводит в .i-6 только символы в нижнем регистре.  */
+const input6 = document.querySelector('.i-6');
+const out6 = document.querySelector('.out-6');
+
+input6.addEventListener('keyup', function(e) {
+    out6.textContent += t6(e);
+});
+
+function t6(event) {
+    if (event.code.includes('Key')) {
+        return event.key.toLowerCase();
+    } else return '';
+}
