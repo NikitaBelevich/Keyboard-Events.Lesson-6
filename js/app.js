@@ -83,3 +83,18 @@ function t6(event) {
         return event.key.toLowerCase();
     } else return '';
 }
+
+// Task 7 ============================================
+/*  Дан input .i-7. Напишите функцию t7, которая выводит в .out-7 случаный символ из массива a7 при каждом вводе символа. */
+const input7 = document.querySelector('.i-7');
+const out7 = document.querySelector('.out-7');
+
+input7.addEventListener('keydown', function(e) {
+    out7.textContent += t7(e);
+});
+
+function t7() {
+    const a7 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"];
+    let randIndex = Math.floor(Math.random() * a7.length);
+    return a7[randIndex];
+}
