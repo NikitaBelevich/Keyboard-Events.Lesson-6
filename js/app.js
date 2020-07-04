@@ -140,3 +140,24 @@ function t9(event) {
         return ++countArrowDown9;
     } else return out9.textContent;
 }
+
+// Task 10 ============================================
+/*  Дан input .i-10 и изображение 1.png. Добавьте событие на input, при нажатии клавиш стрелка вправо и стрелка влево увеличивать ширину изображения. Клавиши стрелка вверх и вниз - увеличивать высоту изображения. Одно нажатие клавиши - 1px. */
+const input10 = document.querySelector('.i-10');
+const img10 = document.querySelector('.div-10 img');
+
+input10.addEventListener('keydown', function(e) {
+    t10(e);
+});
+
+function t10(e) {
+    let currrentHeight = img10.clientHeight;
+    let currrentWidth = img10.clientWidth;
+
+    if (e.code == 'ArrowDown' || e.code == 'ArrowUp') {
+        img10.style.height = ++currrentHeight + 'px';
+    }
+    if (e.code == 'ArrowLeft' || e.code == 'ArrowRight') {
+        img10.style.width = ++currrentWidth + 'px';
+    }
+}
