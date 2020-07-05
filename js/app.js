@@ -161,3 +161,46 @@ function t10(e) {
         img10.style.width = ++currrentWidth + 'px';
     }
 }
+
+// Task 11 ============================================
+//Создайте функцию runOnKeys(func, code1, code2, ... code_n), которая запускает func при одновременном нажатии клавиш с кодами code1, code2, …, code_n.
+let pressed = new Set();
+
+// Например функция обратного вызова
+function hi() {
+    console.warn('hello');
+    // alert('hello');
+}
+document.addEventListener('keydown', (event) => {
+    runOnKeys(event, hi, 'KeyT', 'KeyY', 'KeyO');
+});
+
+function runOnKeys(event, callback, ...rest) {
+    // Добавляем код клавиши которую нажали
+    pressed.add(event.code);
+    // Функция проверяет, есть ли среди нажатых клавиш нужная комбинация
+    // Если хотя-бы одна клавиша не та, значит это нажата другая комбинация, не та, которая нам нужна
+    function checkingTheCombination() {
+        for (const key of rest) {
+            if (!pressed.has(key)) return false;
+        }
+        return true;
+    }
+    // Если все нажатые клавиши действительно нужные нам, тогда вызываем переданную функцию
+    if (checkingTheCombination()) {
+        callback();
+        /* Для alert и им подобным, после того как сработала комбинация, эти клавиши на keyup не попадают 
+        в итоге, они не удаляются из Set, т.к мы их отпускаем во время ожидания alert, так что лучше целиком очистить наш Set после того как отработал callback, логика завершена, Set очищен.*/
+        pressed.clear();
+    }
+
+    // При отпускании клавиши, удаляем её из набора нажатых, и удаляем с документа этот обработчик
+    document.addEventListener('keyup', (event) => {
+        clearKey(event);
+    });
+    function clearKey(event) {
+        pressed.delete(event.code); // удалили из коллекции при отпускании клавишу, которую раньше добавили
+        document.removeEventListener('keyup', clearKey);
+    }
+    console.log(pressed);
+}
