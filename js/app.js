@@ -172,7 +172,7 @@ function hi() {
     // alert('hello');
 }
 document.addEventListener('keydown', (event) => {
-    runOnKeys(event, hi, 'KeyT', 'KeyY', 'KeyO');
+    runOnKeys(event, hi, 'KeyT', 'KeyY');
 });
 
 function runOnKeys(event, callback, ...rest) {
@@ -191,7 +191,7 @@ function runOnKeys(event, callback, ...rest) {
         callback();
         /* Для alert и им подобным, после того как сработала комбинация, эти клавиши на keyup не попадают 
         в итоге, они не удаляются из Set, т.к мы их отпускаем во время ожидания alert, так что лучше целиком очистить наш Set после того как отработал callback, логика завершена, Set очищен.*/
-        pressed.clear();
+        // pressed.clear();
     }
 
     // При отпускании клавиши, удаляем её из набора нажатых, и удаляем с документа этот обработчик
